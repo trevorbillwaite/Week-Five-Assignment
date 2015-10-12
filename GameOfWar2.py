@@ -3,6 +3,7 @@ __author__ = 'trevorbillwaite'
 # Week Five Assignment
 # Introduction to Computer Science
 # GameOfWar2
+# Collaboration with Nicole Ignasiak
 
 
 #!/usr/bin/env python

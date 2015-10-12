@@ -1,3 +1,11 @@
+__author__ = 'trevorbillwaite'
+
+# Week Five Assignment
+# Introduction to Computer Science
+# GameOfWar1
+# Collaboration with Nicole Ignasiak
+
+
 #!/usr/bin/env python
 # encoding: utf-8
 """
