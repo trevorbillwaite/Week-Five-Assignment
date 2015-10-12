@@ -40,6 +40,7 @@ def main():
 		gameCounter += 1
 		PlayerAHand, PlayerBHand = playRound(PlayerAHand, PlayerBHand)
 	
+	
 	# End of game
 	
 	print("There were ", gameCounter, " rounds played")
@@ -48,12 +49,16 @@ def playRound(PlayerA, PlayerB):
 	# Define the actions of PlayerA and PlayerB playing a card
 	ACard = PlayerA.pop()
 	BCard = PlayerB.pop()
-	if ACard > BCard:
-		PlayerA.append(PlayerB.pop(0))
-		PlayerA.append(PlayerA.pop(0))
-	elif BCard > ACard:
-		PlayerB.append(PlayerA.pop(0))
-		PlayerB.append(PlayerB.pop(0))
+	
+	ARank = getRank(ACard)
+	BRank = getRank(BCard)
+	
+	if ARank > BRank:
+		PlayerA.insert(0, ACard)
+		PlayerA.insert(0, BCard)
+	elif BRank > ARank:
+		PlayerB.insert(0, BCard)
+		PlayerB.insert(0, ACard)
 	else:
 		PlayerA, PlayerB = WAR(PlayerA, PlayerB)
 		
@@ -74,8 +79,7 @@ def playRound(PlayerA, PlayerB):
 
 
 def WAR(PlayerA, PlayerB):
-	# See the README.md file for instructions on coding 
-	# This module.
+	# If both players play a card of the same value (ranging from low to high, 2-Ace), both players remove that card from play
 
 	return PlayerA, PlayerB
 
@@ -86,4 +90,3 @@ def getRank(anyCard):
 
 if __name__ == '__main__':
 	main()
-

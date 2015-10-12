@@ -1,3 +1,10 @@
+__author__ = 'trevorbillwaite'
+
+# Week Five Assignment
+# Introduction to Computer Science
+# GameOfWar1
+
+
 #!/usr/bin/env python
 # encoding: utf-8
 """
@@ -40,6 +47,7 @@ def main():
 		gameCounter += 1
 		PlayerAHand, PlayerBHand = playRound(PlayerAHand, PlayerBHand)
 	
+	
 	# End of game
 	
 	print("There were ", gameCounter, " rounds played")
@@ -48,15 +56,19 @@ def playRound(PlayerA, PlayerB):
 	# Define the actions of PlayerA and PlayerB playing a card
 	ACard = PlayerA.pop()
 	BCard = PlayerB.pop()
-	if ACard > BCard:
-		PlayerA.append(PlayerB.pop(0))
-		PlayerA.append(PlayerA.pop(0))
-	elif BCard > ACard:
-		PlayerB.append(PlayerA.pop(0))
-		PlayerB.append(PlayerB.pop(0))
+	
+	ARank = getRank(ACard)
+	BRank = getRank(BCard)
+	
+	if ARank > BRank:
+		PlayerA.insert(0, ACard)
+		PlayerA.insert(0, BCard)
+	elif BRank > ARank:
+		PlayerB.insert(0, ACard)
+		PlayerB.insert(0, BCard)
 	else:
 		PlayerA, PlayerB = WAR(PlayerA, PlayerB)
-		
+		print("War")
 	
 	'''
 	This is the method that plays one round of War
@@ -74,8 +86,7 @@ def playRound(PlayerA, PlayerB):
 
 
 def WAR(PlayerA, PlayerB):
-	# See the README.md file for instructions on coding 
-	# This module.
+	# Because both cards are removed when WAR is played in version 1, no code is needed here.
 
 	return PlayerA, PlayerB
 
@@ -86,4 +97,5 @@ def getRank(anyCard):
 
 if __name__ == '__main__':
 	main()
+
 
